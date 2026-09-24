@@ -6,9 +6,10 @@ proposes changes for his review before anything goes upstream.
 The bot pushes a tested branch to the fork here and opens a draft pull request
 into the fork's `main` (or whatever upstream branch the change targets), written
 as the future upstream PR. Colin comments on it or edits it directly, and the
-bot addresses his review with more commits on the same branch. When he approves,
-the bot opens the upstream PR from the same commits, with the same title and
-description. If he closes it instead, it's dropped. The forks' own CI runs on
+bot addresses his review with more commits on the same branch. When he approves
+it, with a review or a comment whose line is just `/promote`, the bot opens the
+upstream PR from the same commits, with the same title and description (as a
+draft if he also wrote a `/draft` line). If he closes it instead, it's dropped. The forks' own CI runs on
 these PRs, so they get tested before anyone upstream sees them.
 
 Nothing here is meant for upstream maintainers to review. More on how the bot
