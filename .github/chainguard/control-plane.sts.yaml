@@ -1,0 +1,14 @@
+# The control-plane service (cgwalters-forge/review#281) on the operator's
+# cluster exchanges its projected service-account token here for a
+# short-lived, read-only installation token. The issuer and subject match
+# exactly; never widen them to a pattern.
+issuer: https://container.googleapis.com/v1/projects/walters-forge-gke-7c2e/locations/northamerica-northeast1-a/clusters/forge-gke
+subject: system:serviceaccount:control-plane:control-plane
+
+permissions:
+  metadata: read
+  contents: read
+  issues: read
+  pull_requests: read
+  actions: read
+  organization_projects: read
