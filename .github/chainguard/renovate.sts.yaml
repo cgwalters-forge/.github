@@ -1,0 +1,19 @@
+# forge-infra's daily Renovate (cgwalters-forge/forge-infra
+# .github/workflows/renovate.yml, on main only) exchanges its Actions OIDC
+# token here for an installation token that can open and update Renovate's
+# pull requests in every repository the Octo-STS app is installed on. The
+# issuer, subject and workflow match exactly; never widen them to a pattern
+# that admits another repository, branch or workflow.
+issuer: https://token.actions.githubusercontent.com
+subject: repo:cgwalters-forge/forge-infra:ref:refs/heads/main
+claim_pattern:
+  job_workflow_ref: cgwalters-forge/forge-infra/\.github/workflows/renovate\.yml@refs/heads/main
+
+permissions:
+  metadata: read
+  contents: write
+  pull_requests: write
+  issues: write
+  workflows: write
+  checks: read
+  statuses: read
